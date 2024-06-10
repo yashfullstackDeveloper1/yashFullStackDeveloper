@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .main {
+            width: 600px;
+            height: 500px; 
+            background-color: lightpink;
+        }
+    </style>
+    <script>
+        function add() {
+            let fristnumber = document.getElementById("number-one").value;
+            let secondnumber = document.getElementById("number-two").value;
+            let total = Number(fristnumber) + Number(secondnumber);
+            document.getElementById("display").innerHTML = "the result is:" + total;
+
+        }
+
+        function sub() {
+            let fristnumber = document.getElementById("number-one").value;
+            let secondnumber = document.getElementById("number-two").value;
+            let total = Number(fristnumber) - Number(secondnumber);
+            document.getElementById("display").innerHTML = "the result is:" + total;
+
+        }
+
+        function per() {
+            let fristnumber = document.getElementById("number-one").value;
+            let secondnumber = document.getElementById("number-two").value;
+            let total = Number(fristnumber) / Number(secondnumber)*100;
+            document.getElementById("display").innerHTML = "the result is:" + total;
+            
+
+        }
+        function mul() {
+            let fristnumber = document.getElementById("number-one").value;
+            let secondnumber = document.getElementById("number-two").value;
+            let total = Number(fristnumber) * Number(secondnumber);
+            document.getElementById("display").innerHTML = "the result is:" + total;
+        }
+        function div() {
+            let fristnumber = document.getElementById("number-one").value;
+            let secondnumber = document.getElementById("number-two").value;
+            let total = Number(fristnumber) / Number(secondnumber);
+            document.getElementById("display").innerHTML = "the result is:" + total;
+        }
+        function clearFunction(){
+            document.getElementById("display").innerHTML="";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <h1 style="background-color: lightblue; height: 100px; width: 100%;" id="display"></h1>
+        <!--  -->
+        <input type="text" id="number-one" value="" style="width: 150px; height: 38px;">
+        <input type="text" id="number-two" value="" style="width: 150px; height: 38px;">
+        <!--  -->
+        <br>
+        <div style=""></div> <button class="submit" onclick="add()">add</button><br></div>
+<br>
+<div style="margin-top: -300px; display: block;">  <button class="submit" onclick="sub()">sub</button><br></div>
+<br>
+<div style=""> <button class="submit" onclick="per()">percentage</button><br></div>
+
+      <div style="margin-top: 20px;">  <button class="submit" onclick="mul()">multiply</button></div><br>
+
+      <div style=""><button class="submit" onclick="div()">division</button></div><br>
+
+      <div style=""><button type="submit" class="submit" onclick="clearFunction()">clear</button></div><br>
+    </div>
+</body>
+
+</html>
