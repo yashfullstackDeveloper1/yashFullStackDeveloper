@@ -2,224 +2,205 @@
 <html>
 
 <head>
-    <title>My Home Page</title>
+
+    <title>portfolio</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.skill-level').forEach(function (el) {
+                el.style.setProperty('--width', el.getAttribute('data-level'));
+            });
+        });
+
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            background-color: #B5C0D0;
-            background-image: url(./images/home-page/best-bqckground.webp);
-            background-size: cover;
-        }
-
-        /* Mine */
-        .yash {
-            text-align: center;
-
-        }
-
-        .h3 {
-            margin: 5px;
+        /* Skill bars */
+        .skills {
+            margin: 40px 0;
         }
 
         .skill {
-            width: 500px;
-            margin: 60px auto;
-            color: #fff;
-            margin-top: -205px;
-            border-style: double;
-            border-color: #76ABAE;
-            padding: 20px;
-            background-color: #31363F;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
-
-        .skill li {
             margin: 20px 0;
-            padding: 10px;
         }
 
-        .bar {
-            background: #353b48;
-            display: block;
+        .skill-name {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: #ddd;
             height: 20px;
-            border: 1px solid rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        .bar:hover {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-
-        }
-
-        .bar span {
-            height: 20px;
-            float: left;
-            background: linear-gradient(135deg, rgb(26, 255, 0)0%, rgba(252, 103, 103, 1)100%);
+        .skill-level {
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+            line-height: 20px;
+            color: #fff;
+            border-radius: 10px;
         }
 
         .html {
-            width: 88%;
-            animation: html 3s;
+            width: 0;
+            background: #e44d26;
         }
 
         .css {
-            width: 80%;
-            animation: css 3s;
+            width: 0;
+            background: #264de4;
         }
 
-        .javascript {
-            width: 40%;
-            animation: javascript 5s;
-        }
-        ul {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0;
-            padding: 0;
-            display: flex;
+        .js {
+            width: 0;
+            background: #f0db4f;
+            color: #000;
         }
 
-        ul li {
-            list-style: none;
+        /* Animation */
+        @keyframes grow {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--width);
+            }
         }
 
-        ul li a {
-            position: relative;
-            display: block;
-            padding: 10px 20px;
-            margin: 20px 0;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #fff;
-            font-weight: bold;
-            transition: .5s;
+        .skill-level {
+            animation: grow 2s forwards;
         }
 
-        ul li a:hover {
-            color: #6600ff;
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .home-content {
+                padding: 20px;
+            }
         }
-
-        ul li a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
-            transform: scaleY(2);
-            opacity: 0;
-            transition: .5s;
-            z-index: -1;
-        }
-
-        ul li a:hover:before {
-            transform: scaleY(1);
-            opacity: 1;
-        }
-
-        ul li a:after {
-            content: '';
-            position: absolute;
-            top: 1px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #e1e81a;
-            transform: scale(0);
-            transition: .5s;
-            z-index: -1;
-
-        }
-
-        ul li a:hover:after {
-            transform: scale(1);
-        }
-
-    
-
-        
     </style>
 </head>
 
 <body>
-    <header style="font-family: cursive; text-align: center;">
-        <marquee behavior="repeat" direction="right">
-            <h1 style="color: #6fff00;">⛧&ensp;&ensp;My-Ѕкιℓℓѕ&ensp;&ensp;⛧</h1>
-        </marquee>
+    <header class="header">
+        <a href="#" class="logo">portfolio</a>
+
+        <nav class="navbar">
+            <a href="#section-one">Home</a>
+            <a href="#section-two">About</a>
+            <a href="#section-three">Skill</a>
+            <a href="#section-four">Projects</a>
+            <a href="#section-five">Contact</a>
+        </nav>
+
     </header>
-    <hr color="blue">
+    <div id="section-one">
+        <section class="home">
+            <div class="home-content">
+                <h3>Hello, It's Me</h3>
+                <h1>Yash Dhapke</h1>
+                <h3>And I am</h3>
+                <p>Full stack Developer, and web Desiner
+                    <br>and i like to explore new things.
+                </p>
+                <div class="home-sci">
 
-    <!-- First Main-Division -->
-    <div
-        style="border-style: solid; height: 200px; background-color: #96C291; width: 300px; margin-left: 10px; padding-top: 10px;">
-        <!-- This is Heading -->
-
-        <h3
-            style="text-align: center; margin-top: -0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #E78895;">
-            My Some Accounts</h3>
-        <hr color="black">
-        </a>
-        <br>
-        <br>
-        <!-- This is GitHub -->
-        <img style="height: 10%; width: 10%; border-radius: 100%; margin-top: -35px; display: block;"
-            src="./images/normal-uses/GitHub.jpg">
-        <a href="https://github.com/yashFullStackDeveloper/yash-897">
-            <h5 style="margin-left: 40px; margin-top: -20px; color: darkblue;">GitHub Account</h5>
-        </a>
-        <br>
-        <br>
-        <!-- This is Skype -->
-        <img style="height: 10%; width: 10%; border-radius: 100%; margin-top: -35px; display: block;"
-            src="./images/normal-uses/Skype.jpg">
-        <a href="https://join.skype.com/invite/tY5NS9ftSTxj">
-            <h5 style="margin-left: 40px; margin-top: -20px; color: darkblue;">Skype Account</h5>
-        </a>
+                </div>
+            </div>
     </div>
-    <!-- This is Learn by Youtube -->
-    <div class="skill">
-        <h1 class="yash" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">My
-            Skills</h1>
-        <li>
-            <h3 class="h3">HTML&ensp;(88%)</h3>
-            <span class="bar"><span class="html"></span></span>
-        </li>
-        <li>
-            <h3 class="h3">CSS&ensp;(80%)</h3>
-            <span class="bar"><span class="css"></span></span>
-        </li>
-        <li>
-            <h3 class="h3">JavaScript&ensp;(40%)</h3>
-            <span class="bar"><span class="javascript"></span></span>
-        </li>
+
+
+
+    </section>
+    <div id="section-two">
+        <section class="bold">
+            <div class="home-content">
+                <h1 style="text-align: center;">ＡＢＯＵＴ</h1>
+                <h1 style="color: aqua;margin-left: 450px;">ＭＥ</h1><br>
+                <br>
+                <br>
+                <h2>𝙄𝙩'𝙨 𝙈𝙚 𝙔𝙖𝙨𝙝</h2><br>
+
+                <h2 style="color: rgb(136, 197, 107);">My name is yash I am studing in class 10 in mount carmel convent
+                    school katol I am 15 years old I like
+                    fashning, desining, coading, my favourate subject is Maths my hobby is to explore new things for-
+                    example To explore sea, nature, animal habitats, ans so on.. </h2>
+
+
+
+
+
+            </div>
     </div>
-    
-    <br>
-    <br>
-    <hr>
+    </div>
 
-    <h1 style="text-align: center;">Here Is My Some Projects...</h1>
+    </section>
+    <div id="section-three">
+        <section class="home">
+            <div class="home-content">
+                <h1 style="color: aqua; text-align: center;">𝑴𝒚 𝑺𝒌𝒊𝒍𝒍𝒔</h1>
+                <div class="skills">
+                    <div class="skill">
+                        <div class="skill-name">HTML</div>
+                        <div class="skill-bar">
+                            <div class="skill-level html" data-level="90%">90%</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-level css" data-level="80%">80%</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-bar">
+                            <div class="skill-level js" data-level="80%">80%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
     <br>
-    <br>
+    <div id="section-four">
+        <section class="home">
+            <div class="home-content">
+                <div class="home-sci">
 
-    <ul>
-        <br>
-        <br>
-        <li
-                style="margin-top: -150px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-left: 190px;">
-                <a style="margin-top: 150px;margin-left: 560px;color: #ff0000;" href="./project.html">Click Me </a>
-            </li>
-    </ul>
+
+                </div>
+            </div>
+    </div>
+    <div id="section-five">
+        <section class="home">
+            <div class="home-content">
+                <div class="home-sci">
+                    <h1 style="color: aqua;margin-left: 500px;">𝗖𝗼𝗻𝘁𝗮𝗰𝘁</h1> 
+                      <h1 style="color: aqua;margin-left: 690px">𝗠𝗲..</h1>
+
+                      
+
+
+
+                </div>
+            </div>
+    </div>
 
 </body>
 
